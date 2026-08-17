@@ -4338,6 +4338,360 @@ function seleccionarPeriodo(
 fetch("datos_publicos.json")
     .then(respuesta => respuesta.json())
     .then(datos => console.log("✅ Datos públicos conectados:", datos));
+
+    /* ============================================================
+   PREPARAR DATOS PUBLICOS
+   SOLO: PERIODOS + KPIs + SEDES + CUENTAS
+   NO incluye proveedores ni movimientos.
+============================================================ */
+
+function prepararDatosPublicos() {
+
+    if (
+        !datosDetalle ||
+        datosDetalle.length === 0
+    ) {
+
+        alert(
+            "Primero selecciona y carga el Excel."
+        );
+
+        return;
+
+    }
+
+
+    const periodos = [
+        "ENERO",
+        "FEBRERO",
+        "MARZO",
+        "ABRIL",
+        "MAYO",
+        "JUNIO",
+        "JULIO",
+        "AGOSTO",
+        "SEPTIEMBRE",
+        "OCTUBRE",
+        "NOVIEMBRE",
+        "DICIEMBRE"
+    ];
+
+
+    const resultado = {
+        periodos: {}
+    };
+
+
+    /*
+       Recorremos cada mes.
+    */
+
+    periodos.forEach(periodo => {
+
+        const sedes = {};
+        const cuentas = {};
+        const cuentasConMovimiento = new Set();
+
+        let total = 0;
+        let movimientos = 0;
+
+
+        /*
+           CREAMOS TODAS LAS SEDES
+           para que las que tengan 0
+           también aparezcan.
+        */
+
+        datosDetalle.forEach(fila => {
+
+            const sede =
+                limpiarTexto(
+                    obtenerValor(
+                        fila,
+                        [
+                            "SEDE",
+                            "Sede",
+                            "CODIGO_SEDE",
+                            "CODIGO SEDE"
+                        ]
+                    )
+                );
+
+
+            if (
+                sede &&
+                !sedes[sede]
+            ) {
+
+                sedes[sede] = {
+                    nombre: sede,
+                    total: 0,
+                    movimientos: 0
+                };
+
+            }
+
+        });
+
+
+        /*
+           CREAMOS TODAS LAS CUENTAS
+           desde las cuentas principales
+           del dashboard.
+        */
+
+        Object.values(
+            cuentasPrincipales
+        ).forEach(principal => {
+
+            principal.cuentas.forEach(cuenta => {
+
+                cuentas[
+                    cuenta.codigo
+                ] = {
+
+                    codigo:
+                        cuenta.codigo,
+
+                    nombre:
+                        cuenta.nombre,
+
+                    total:
+                        0
+
+                };
+
+            });
+
+        });
+
+
+        /*
+           CALCULAMOS EL MES.
+        */
+
+        datosDetalle.forEach(fila => {
+
+            /*
+               Guardamos temporalmente
+               el período seleccionado.
+            */
+
+            const periodoAnterior =
+                periodoSeleccionado;
+
+
+            periodoSeleccionado =
+                periodo;
+
+
+            const pertenece =
+                filaPertenecePeriodo(
+                    fila
+                );
+
+
+            periodoSeleccionado =
+                periodoAnterior;
+
+
+            if (!pertenece) {
+                return;
+            }
+
+
+            movimientos++;
+
+
+            const importe =
+                numero(
+                    obtenerValor(
+                        fila,
+                        ["IMPORTE"]
+                    )
+                );
+
+
+            total += importe;
+
+
+            /*
+               CUENTA
+            */
+
+            const cuentaCodigo =
+                codigo(
+                    obtenerValor(
+                        fila,
+                        ["CUENTA"]
+                    )
+                );
+
+
+            if (cuentaCodigo) {
+
+                cuentasConMovimiento.add(
+                    cuentaCodigo
+                );
+
+
+                if (
+                    cuentas[cuentaCodigo]
+                ) {
+
+                    cuentas[
+                        cuentaCodigo
+                    ].total += importe;
+
+                }
+
+            }
+
+
+            /*
+               SEDE
+            */
+
+            const sede =
+                limpiarTexto(
+                    obtenerValor(
+                        fila,
+                        [
+                            "SEDE",
+                            "Sede",
+                            "CODIGO_SEDE",
+                            "CODIGO SEDE"
+                        ]
+                    )
+                );
+
+
+            if (sede) {
+
+                if (!sedes[sede]) {
+
+                    sedes[sede] = {
+
+                        nombre:
+                            sede,
+
+                        total:
+                            0,
+
+                        movimientos:
+                            0
+
+                    };
+
+                }
+
+
+                sedes[sede].total +=
+                    importe;
+
+
+                sedes[sede].movimientos++;
+
+            }
+
+        });
+
+
+        /*
+           GUARDAMOS EL MES.
+        */
+
+        resultado.periodos[
+            periodo
+        ] = {
+
+            kpis: {
+
+                principales:
+                    Object.keys(
+                        cuentasPrincipales
+                    ).length,
+
+                cuentas:
+                    cuentasConMovimiento.size,
+
+                movimientos:
+                    movimientos,
+
+                total:
+                    total
+
+            },
+
+
+            sedes:
+                Object.values(
+                    sedes
+                ),
+
+
+            cuentas:
+                Object.values(
+                    cuentas
+                )
+
+        };
+
+    });
+
+
+    /*
+       DESCARGAMOS EL JSON.
+    */
+
+    const contenido =
+        JSON.stringify(
+            resultado,
+            null,
+            2
+        );
+
+
+    const archivo =
+        new Blob(
+            [contenido],
+            {
+                type:
+                    "application/json"
+            }
+        );
+
+
+    const enlace =
+        document.createElement(
+            "a"
+        );
+
+
+    enlace.href =
+        URL.createObjectURL(
+            archivo
+        );
+
+
+    enlace.download =
+        "datos_publicos.json";
+
+
+    enlace.click();
+
+
+    URL.revokeObjectURL(
+        enlace.href
+    );
+
+
+    alert(
+        "✅ Datos públicos preparados. " +
+        "Ahora puedes subir datos_publicos.json a GitHub."
+    );
+
+}
     
 </script>
 
