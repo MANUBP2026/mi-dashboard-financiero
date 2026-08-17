@@ -1,3 +1,3568 @@
 {
-  "periodos": {}
+  "periodos": {
+    "ENERO": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 0,
+        "movimientos": 0,
+        "total": 0
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "PIURA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 0,
+          "movimientos": 0
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 0
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 0
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 0
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 0
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 0
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 0
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 0
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 0
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 0
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 0
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 0
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 0
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 0
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 0
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 0
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 0
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 0
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 0
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 0
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 0
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 0
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 0
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 0
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 0
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 0
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 0
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 0
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 0
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 0
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 0
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 0
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 0
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 0
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 0
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 0
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 0
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": 0
+        }
+      ]
+    },
+    "FEBRERO": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 0,
+        "movimientos": 0,
+        "total": 0
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "PIURA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 0,
+          "movimientos": 0
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 0
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 0
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 0
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 0
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 0
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 0
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 0
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 0
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 0
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 0
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 0
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 0
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 0
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 0
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 0
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 0
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 0
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 0
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 0
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 0
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 0
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 0
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 0
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 0
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 0
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 0
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 0
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 0
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 0
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 0
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 0
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 0
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 0
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 0
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 0
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 0
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": 0
+        }
+      ]
+    },
+    "MARZO": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 0,
+        "movimientos": 0,
+        "total": 0
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "PIURA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 0,
+          "movimientos": 0
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 0
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 0
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 0
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 0
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 0
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 0
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 0
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 0
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 0
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 0
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 0
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 0
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 0
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 0
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 0
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 0
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 0
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 0
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 0
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 0
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 0
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 0
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 0
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 0
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 0
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 0
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 0
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 0
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 0
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 0
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 0
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 0
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 0
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 0
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 0
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 0
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": 0
+        }
+      ]
+    },
+    "ABRIL": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 0,
+        "movimientos": 0,
+        "total": 0
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "PIURA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 0,
+          "movimientos": 0
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 0
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 0
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 0
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 0
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 0
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 0
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 0
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 0
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 0
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 0
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 0
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 0
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 0
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 0
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 0
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 0
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 0
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 0
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 0
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 0
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 0
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 0
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 0
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 0
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 0
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 0
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 0
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 0
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 0
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 0
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 0
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 0
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 0
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 0
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 0
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 0
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": 0
+        }
+      ]
+    },
+    "MAYO": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 0,
+        "movimientos": 0,
+        "total": 0
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "PIURA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 0,
+          "movimientos": 0
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 0
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 0
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 0
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 0
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 0
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 0
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 0
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 0
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 0
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 0
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 0
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 0
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 0
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 0
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 0
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 0
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 0
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 0
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 0
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 0
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 0
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 0
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 0
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 0
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 0
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 0
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 0
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 0
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 0
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 0
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 0
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 0
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 0
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 0
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 0
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 0
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": 0
+        }
+      ]
+    },
+    "JUNIO": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 0,
+        "movimientos": 0,
+        "total": 0
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "PIURA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 0,
+          "movimientos": 0
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 0
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 0
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 0
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 0
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 0
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 0
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 0
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 0
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 0
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 0
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 0
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 0
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 0
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 0
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 0
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 0
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 0
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 0
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 0
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 0
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 0
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 0
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 0
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 0
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 0
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 0
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 0
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 0
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 0
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 0
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 0
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 0
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 0
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 0
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 0
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 0
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": 0
+        }
+      ]
+    },
+    "JULIO": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 47,
+        "movimientos": 477,
+        "total": 175803.89000000042
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 153627.0200000002,
+          "movimientos": 403
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 4277.05,
+          "movimientos": 14
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 5178.26,
+          "movimientos": 13
+        },
+        {
+          "nombre": "PIURA",
+          "total": 4604.87,
+          "movimientos": 10
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 8116.6900000000005,
+          "movimientos": 37
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 4118.82
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": -468.20000000000005
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 13508.499999999996
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 94.28
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 542.37
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 23.380000000000003
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 12555.359999999999
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 6148.8
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 1905.07
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 4093.2
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 632.7
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 7779.09
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 300
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 596.6699999999946
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 2016.96
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 784.74
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 173.3
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 91.5
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 20
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 2118.75
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 2525.0799999999995
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 12871.57
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 4570
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 1174.3799999999999
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 10163.740000000005
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 3800
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 937.2
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 1230.71
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 21096.3
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 890
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 55.800000000000004
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 351.6
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 440.37
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 106.78
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 339.8
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 2720.17
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 18327.989999999998
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 9054.73
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 436.54
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 155.33
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 58.5
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 790.93
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 1485.09
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 1821.1799999999998
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 79.06
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 23316.249999999996
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": -30.5
+        }
+      ]
+    },
+    "AGOSTO": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 0,
+        "movimientos": 0,
+        "total": 0
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "PIURA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 0,
+          "movimientos": 0
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 0
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 0
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 0
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 0
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 0
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 0
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 0
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 0
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 0
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 0
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 0
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 0
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 0
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 0
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 0
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 0
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 0
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 0
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 0
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 0
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 0
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 0
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 0
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 0
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 0
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 0
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 0
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 0
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 0
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 0
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 0
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 0
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 0
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 0
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 0
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 0
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": 0
+        }
+      ]
+    },
+    "SEPTIEMBRE": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 0,
+        "movimientos": 0,
+        "total": 0
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "PIURA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 0,
+          "movimientos": 0
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 0
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 0
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 0
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 0
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 0
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 0
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 0
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 0
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 0
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 0
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 0
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 0
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 0
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 0
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 0
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 0
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 0
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 0
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 0
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 0
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 0
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 0
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 0
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 0
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 0
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 0
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 0
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 0
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 0
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 0
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 0
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 0
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 0
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 0
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 0
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 0
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": 0
+        }
+      ]
+    },
+    "OCTUBRE": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 0,
+        "movimientos": 0,
+        "total": 0
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "PIURA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 0,
+          "movimientos": 0
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 0
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 0
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 0
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 0
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 0
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 0
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 0
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 0
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 0
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 0
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 0
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 0
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 0
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 0
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 0
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 0
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 0
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 0
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 0
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 0
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 0
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 0
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 0
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 0
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 0
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 0
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 0
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 0
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 0
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 0
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 0
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 0
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 0
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 0
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 0
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 0
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": 0
+        }
+      ]
+    },
+    "NOVIEMBRE": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 0,
+        "movimientos": 0,
+        "total": 0
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "PIURA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 0,
+          "movimientos": 0
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 0
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 0
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 0
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 0
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 0
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 0
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 0
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 0
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 0
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 0
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 0
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 0
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 0
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 0
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 0
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 0
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 0
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 0
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 0
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 0
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 0
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 0
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 0
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 0
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 0
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 0
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 0
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 0
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 0
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 0
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 0
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 0
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 0
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 0
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 0
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 0
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": 0
+        }
+      ]
+    },
+    "DICIEMBRE": {
+      "kpis": {
+        "principales": 40,
+        "cuentas": 0,
+        "movimientos": 0,
+        "total": 0
+      },
+      "sedes": [
+        {
+          "nombre": "LIMA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "TRUJILLO",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "AREQUIPA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "PIURA",
+          "total": 0,
+          "movimientos": 0
+        },
+        {
+          "nombre": "LIMA NORTE",
+          "total": 0,
+          "movimientos": 0
+        }
+      ],
+      "cuentas": [
+        {
+          "codigo": "625101",
+          "nombre": "ATENCION AL PERSONAL",
+          "total": 0
+        },
+        {
+          "codigo": "631122",
+          "nombre": "PASAJES AEREOS",
+          "total": 0
+        },
+        {
+          "codigo": "631123",
+          "nombre": "SERVICIO DE ESTACIONAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631125",
+          "nombre": "PLANILLA DE MOVILIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "631202",
+          "nombre": "COURIER",
+          "total": 0
+        },
+        {
+          "codigo": "631301",
+          "nombre": "ALOJAMIENTO",
+          "total": 0
+        },
+        {
+          "codigo": "631501",
+          "nombre": "PEAJES",
+          "total": 0
+        },
+        {
+          "codigo": "632201",
+          "nombre": "ASESORIA LEGAL",
+          "total": 0
+        },
+        {
+          "codigo": "632301",
+          "nombre": "ASESORIA CONTABLE",
+          "total": 0
+        },
+        {
+          "codigo": "632304",
+          "nombre": "AUDITORIA FINANCIERA",
+          "total": 0
+        },
+        {
+          "codigo": "632901",
+          "nombre": "OTROS",
+          "total": 0
+        },
+        {
+          "codigo": "632902",
+          "nombre": "SOPORTE TI",
+          "total": 0
+        },
+        {
+          "codigo": "632903",
+          "nombre": "GASTOS PODER JUDICIAL",
+          "total": 0
+        },
+        {
+          "codigo": "634302",
+          "nombre": "MANTENIMIENTO DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "634305",
+          "nombre": "MANTENIMIENTO DE VEHICULOS",
+          "total": 0
+        },
+        {
+          "codigo": "634401",
+          "nombre": "MANTENIM SOPORTE DE INTANGIBLES",
+          "total": 0
+        },
+        {
+          "codigo": "635201",
+          "nombre": "ALQUILERES EDIFICACIONES",
+          "total": 0
+        },
+        {
+          "codigo": "635401",
+          "nombre": "ALQUILERES EQUIPO DE TRANSPORTE",
+          "total": 0
+        },
+        {
+          "codigo": "635601",
+          "nombre": "ALQUILERES EQUIPOS DIVERSOS",
+          "total": 0
+        },
+        {
+          "codigo": "635602",
+          "nombre": "ALQUILER IMPRESORAS",
+          "total": 0
+        },
+        {
+          "codigo": "636101",
+          "nombre": "ENERGIA ELECTRICA",
+          "total": 0
+        },
+        {
+          "codigo": "636301",
+          "nombre": "AGUA",
+          "total": 0
+        },
+        {
+          "codigo": "636401",
+          "nombre": "TELEFONO CELULAR",
+          "total": 0
+        },
+        {
+          "codigo": "636501",
+          "nombre": "INTERNET",
+          "total": 0
+        },
+        {
+          "codigo": "636801",
+          "nombre": "AIRE ACONDICINADO",
+          "total": 0
+        },
+        {
+          "codigo": "637101",
+          "nombre": "PUBLICIDAD",
+          "total": 0
+        },
+        {
+          "codigo": "637102",
+          "nombre": "MERCHANDISING",
+          "total": 0
+        },
+        {
+          "codigo": "637301",
+          "nombre": "GASTOS DE REPRESENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "639101",
+          "nombre": "GASTOS BANCARIOS",
+          "total": 0
+        },
+        {
+          "codigo": "639902",
+          "nombre": "INFORMACION CREDITICIA",
+          "total": 0
+        },
+        {
+          "codigo": "639903",
+          "nombre": "SERV. FIRMA ELECTRONICA",
+          "total": 0
+        },
+        {
+          "codigo": "639904",
+          "nombre": "FACTURADOR ELECTRONICO",
+          "total": 0
+        },
+        {
+          "codigo": "639906",
+          "nombre": "CAVALI",
+          "total": 0
+        },
+        {
+          "codigo": "639907",
+          "nombre": "SERVICIO DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "639908",
+          "nombre": "SERV. IMPRESION",
+          "total": 0
+        },
+        {
+          "codigo": "639909",
+          "nombre": "RECARGA TARJETA ALIMENTACION",
+          "total": 0
+        },
+        {
+          "codigo": "651101",
+          "nombre": "SEGURO VEHICULAR",
+          "total": 0
+        },
+        {
+          "codigo": "651102",
+          "nombre": "SEGURO SOAT",
+          "total": 0
+        },
+        {
+          "codigo": "651103",
+          "nombre": "MULTIRIESGO",
+          "total": 0
+        },
+        {
+          "codigo": "653101",
+          "nombre": "SUSCRIPCION MEMBRESIAS",
+          "total": 0
+        },
+        {
+          "codigo": "654102",
+          "nombre": "SOPORTE INFORMATICO",
+          "total": 0
+        },
+        {
+          "codigo": "654103",
+          "nombre": "LICENCIA DE SOFTWARE",
+          "total": 0
+        },
+        {
+          "codigo": "656101",
+          "nombre": "UTILES DE OFICINA",
+          "total": 0
+        },
+        {
+          "codigo": "656102",
+          "nombre": "GASTOS DE CAFETERIA",
+          "total": 0
+        },
+        {
+          "codigo": "656103",
+          "nombre": "SUMINISTROS DE COMPUTO",
+          "total": 0
+        },
+        {
+          "codigo": "656104",
+          "nombre": "SUMINISTROS DE LIMPIEZA",
+          "total": 0
+        },
+        {
+          "codigo": "656105",
+          "nombre": "COMBUSTUBLES Y LUBRICANTES",
+          "total": 0
+        },
+        {
+          "codigo": "656106",
+          "nombre": "ACTIVO FIJO CONSIDERADO GASTO",
+          "total": 0
+        },
+        {
+          "codigo": "656107",
+          "nombre": "OTROS SUMINISTROS",
+          "total": 0
+        },
+        {
+          "codigo": "659402",
+          "nombre": "GASTOS REPARABLES",
+          "total": 0
+        },
+        {
+          "codigo": "659403",
+          "nombre": "REDONDEO",
+          "total": 0
+        },
+        {
+          "codigo": "659903",
+          "nombre": "GASTOS NOTARIALES Y DE REGISTRO",
+          "total": 0
+        }
+      ]
+    }
+  }
 }
