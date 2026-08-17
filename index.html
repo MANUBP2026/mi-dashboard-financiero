@@ -4342,14 +4342,426 @@ function seleccionarPeriodo(
    FIN
 ============================================================ */
     
+/* ============================================================
+   CARGAR DASHBOARD PUBLICO
+   SOLO KPIs + SEDES + CUENTAS
+============================================================ */
+
+let datosPublicos = null;
+let modoPublico = false;
+
+
 fetch("datos_publicos.json")
-    .then(respuesta => respuesta.json())
+    .then(respuesta => {
+
+        if (!respuesta.ok) {
+            throw new Error("No se pudo cargar datos_publicos.json");
+        }
+
+        return respuesta.json();
+
+    })
     .then(datos => {
-        console.log("✅ Datos públicos conectados:", datos);
+
+        datosPublicos = datos;
+        modoPublico = true;
+
+        console.log(
+            "✅ Dashboard público conectado"
+        );
+
+
+        /*
+           Ocultamos la carga del Excel.
+        */
+
+        const upload =
+            document.querySelector(
+                ".upload-box"
+            );
+
+        if (upload) {
+            upload.style.display = "none";
+        }
+
+
+        /*
+           Ocultamos proveedores.
+        */
+
+        const proveedor =
+            document.getElementById(
+                "kpiProveedores"
+            );
+
+        if (proveedor) {
+
+            const tarjeta =
+                proveedor.closest(
+                    ".kpi-card"
+                );
+
+            if (tarjeta) {
+                tarjeta.style.display = "none";
+            }
+
+        }
+
+
+        /*
+           Mostrar el primer período disponible.
+        */
+
+        const periodos =
+            Object.keys(
+                datos.periodos || {}
+            );
+
+
+        if (periodos.length > 0) {
+
+            const periodoInicial =
+                periodos[0];
+
+            mostrarDashboardPublico(
+                periodoInicial
+            );
+
+        }
+
+
+        /*
+           Interceptamos los botones
+           de períodos.
+        */
+
+        document.addEventListener(
+            "click",
+            function(event) {
+
+                const boton =
+                    event.target.closest(
+                        "#periodos button"
+                    );
+
+
+                if (
+                    !boton ||
+                    !modoPublico
+                ) {
+                    return;
+                }
+
+
+                event.preventDefault();
+
+                event.stopImmediatePropagation();
+
+
+                const periodo =
+                    boton.innerText
+                        .replace("☐", "")
+                        .replace("☒", "")
+                        .trim();
+
+
+                mostrarDashboardPublico(
+                    periodo
+                );
+
+            },
+            true
+        );
+
     })
     .catch(error => {
-        console.error("❌ No se pudo cargar datos_publicos.json:", error);
+
+        console.error(
+            "❌ Error:",
+            error
+        );
+
     });
+
+
+function mostrarDashboardPublico(
+    periodo
+) {
+
+    if (
+        !datosPublicos ||
+        !datosPublicos.periodos
+    ) {
+        return;
+    }
+
+
+    const datos =
+        datosPublicos.periodos[
+            periodo
+        ];
+
+
+    if (!datos) {
+        return;
+    }
+
+
+    /*
+       PERÍODO
+    */
+
+    periodoSeleccionado =
+        periodo;
+
+
+    const textoPeriodo =
+        document.getElementById(
+            "periodoSeleccionado"
+        );
+
+
+    if (textoPeriodo) {
+
+        textoPeriodo.innerText =
+            "PERÍODO SELECCIONADO: " +
+            periodo;
+
+    }
+
+
+    /*
+       MARCAR BOTÓN
+    */
+
+    document
+        .querySelectorAll(
+            "#periodos button"
+        )
+        .forEach(boton => {
+
+            const nombre =
+                boton.innerText
+                    .replace("☐", "")
+                    .replace("☒", "")
+                    .trim();
+
+
+            if (
+                normalizar(nombre) ===
+                normalizar(periodo)
+            ) {
+
+                boton.classList.add(
+                    "selected"
+                );
+
+                boton.innerText =
+                    "☒ " + nombre;
+
+            }
+            else {
+
+                boton.classList.remove(
+                    "selected"
+                );
+
+                boton.innerText =
+                    "☐ " + nombre;
+
+            }
+
+        });
+
+
+    /*
+       KPIs
+    */
+
+    const kpiPrincipales =
+        document.getElementById(
+            "kpiPrincipales"
+        );
+
+    const kpiCuentas =
+        document.getElementById(
+            "kpiCuentas"
+        );
+
+    const kpiTotal =
+        document.getElementById(
+            "kpiTotal"
+        );
+
+
+    if (kpiPrincipales) {
+
+        kpiPrincipales.innerText =
+            datos.kpis.principales;
+
+    }
+
+
+    if (kpiCuentas) {
+
+        kpiCuentas.innerText =
+            datos.kpis.cuentas;
+
+    }
+
+
+    if (kpiTotal) {
+
+        kpiTotal.innerText =
+            formato(
+                datos.kpis.total
+            );
+
+    }
+
+
+    /*
+       Ocultamos movimientos.
+    */
+
+    const kpiMovimientos =
+        document.getElementById(
+            "kpiMovimientos"
+        );
+
+
+    if (kpiMovimientos) {
+
+        const tarjeta =
+            kpiMovimientos.closest(
+                ".kpi-card"
+            );
+
+        if (tarjeta) {
+            tarjeta.style.display = "none";
+        }
+
+    }
+
+
+    /*
+       SEDES
+    */
+
+    const contenedorSedes =
+        document.getElementById(
+            "resumenSedes"
+        );
+
+
+    if (contenedorSedes) {
+
+        contenedorSedes.innerHTML = "";
+
+
+        (datos.sedes || []).forEach(
+            sede => {
+
+                const tarjeta =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                tarjeta.className =
+                    "sede-card";
+
+
+                tarjeta.innerHTML = `
+
+                    <div class="name">
+                        🏢 SEDE
+                    </div>
+
+                    <strong>
+                        ${sede.nombre}
+                    </strong>
+
+                    <div class="amount">
+                        ${formato(
+                            sede.total
+                        )}
+                    </div>
+
+                `;
+
+
+                contenedorSedes.appendChild(
+                    tarjeta
+                );
+
+            }
+        );
+
+    }
+
+
+    /*
+       CUENTAS
+    */
+
+    const contenedorCuentas =
+        document.getElementById(
+            "accountTree"
+        );
+
+
+    if (contenedorCuentas) {
+
+        contenedorCuentas.innerHTML = "";
+
+
+        (datos.cuentas || []).forEach(
+            cuenta => {
+
+                const fila =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                fila.className =
+                    "account-child";
+
+
+                fila.innerHTML = `
+
+                    <div class="child-info">
+
+                        <span class="child-code">
+                            ↳ ${cuenta.codigo}
+                        </span>
+
+                        <span>
+                            ${cuenta.nombre}
+                        </span>
+
+                    </div>
+
+                    <strong>
+                        ${formato(
+                            cuenta.total
+                        )}
+                    </strong>
+
+                `;
+
+
+                contenedorCuentas.appendChild(
+                    fila
+                );
+
+            }
+        );
+
+    }
+
+}
 
     /* ============================================================
    PREPARAR DATOS PUBLICOS
