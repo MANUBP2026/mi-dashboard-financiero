@@ -1,0 +1,4342 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Dashboard Financiero V2</title>
+
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f7;
+    color: #172033;
+}
+
+.header {
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1d4ed8
+    );
+
+    color: white;
+    padding: 25px 35px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.header p {
+    margin: 8px 0 0;
+    color: #cbd5e1;
+}
+
+.container {
+    width: 80%;
+    max-width: none;
+    margin: 0;
+    padding: 25px;
+}
+
+/* =========================
+   CARGA EXCEL
+========================= */
+
+.upload-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.07);
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+button,
+.file-button {
+    border: none;
+    border-radius: 8px;
+    padding: 11px 18px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.file-button {
+    background: #2563eb;
+    color: white;
+    display: inline-block;
+}
+
+.refresh-button {
+    background: #16a34a;
+    color: white;
+}
+
+.clear-button {
+    background: #64748b;
+    color: white;
+}
+
+button:hover,
+.file-button:hover {
+    opacity: .9;
+}
+
+#excelFile {
+    display: none;
+}
+
+.status {
+    margin-top: 15px;
+    color: #475569;
+}
+
+/* =========================
+   ESTADO HOJAS
+========================= */
+
+.sheet-status {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.sheet {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    border-left: 5px solid #94a3b8;
+}
+
+.sheet.ok {
+    border-left-color: #16a34a;
+}
+
+.sheet.error {
+    border-left-color: #dc2626;
+}
+
+.sheet strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sheet span {
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* =========================
+   KPI
+========================= */
+
+.kpis {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.kpi {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.07);
+    border-top: 4px solid #2563eb;
+}
+
+.kpi h3 {
+    margin: 0 0 10px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.kpi .value {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.07);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 19px;
+}
+
+/* =========================
+   BUSCADOR
+========================= */
+
+.search {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   CUENTAS PRINCIPALES
+========================= */
+
+.account-main {
+    border: 1px solid #dbe3ee;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.account-main-header {
+    padding: 15px;
+    background: #f8fafc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.account-main-header:hover {
+    background: #eff6ff;
+}
+
+.account-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrow {
+    font-size: 18px;
+    width: 20px;
+}
+
+.account-code {
+    font-weight: bold;
+    color: #1d4ed8;
+}
+
+.account-name {
+    font-weight: bold;
+}
+
+.account-total {
+    font-weight: bold;
+}
+
+/* =========================
+   CUENTAS SECUNDARIAS
+========================= */
+
+.children {
+    display: none;
+    background: white;
+}
+
+.children.open {
+    display: block;
+}
+
+.account-child {
+    padding: 12px 20px 12px 45px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.account-child:hover {
+    background: #f8fafc;
+}
+
+.child-info {
+    display: flex;
+    gap: 10px;
+}
+
+.child-code {
+    color: #475569;
+    font-weight: bold;
+}
+
+/* =========================
+   DETALLE
+========================= */
+
+.detail-panel {
+    display: none;
+    margin-top: 20px;
+}
+
+.detail-panel.active {
+    display: block;
+}
+
+.detail-panel .table-wrapper {
+    max-height: 500px;
+    overflow: auto;
+}
+
+.detail-panel table {
+    font-size: 12px;
+}
+
+.detail-panel th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.detail-title {
+    background: #eff6ff;
+    border-left: 5px solid #2563eb;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.detail-title h3 {
+    margin: 0 0 5px;
+}
+
+.detail-title p {
+    margin: 5px 0;
+    color: #64748b;
+}
+
+/* =========================
+   TABLA
+========================= */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th {
+    background: #1e3a8a;
+    color: white;
+    padding: 11px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+td.number {
+    text-align: right;
+}
+
+tr:hover {
+    background: #f8fafc;
+}
+
+.negative {
+    color: #dc2626;
+}
+
+.positive {
+    color: #15803d;
+}
+
+/* =========================
+   RESUMEN SEDE
+========================= */
+
+.sede-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.sede-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 15px;
+    background: #f8fafc;
+}
+
+.sede-card .name {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.sede-card .amount {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* =========================
+   MENSAJES
+========================= */
+
+.empty {
+    text-align: center;
+    padding: 35px;
+    color: #64748b;
+}
+
+.info {
+    background: #eff6ff;
+    color: #1e40af;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.warning {
+    background: #fff7ed;
+    color: #9a3412;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* =========================
+   PERIODOS
+========================= */
+
+.periodos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.periodos-grid button {
+    background: #f8fafc;
+    color: #172033;
+    border: 1px solid #cbd5e1;
+    text-align: left;
+}
+
+.periodos-grid button:hover {
+    background: #eff6ff;
+    border-color: #2563eb;
+}
+
+.periodos-grid button.selected {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+/* =========================
+   CERO
+========================= */
+
+.zero-value {
+    color: #94a3b8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 1200px) {
+
+    .kpis {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .sheet-status {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .sede-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 800px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kpis {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sheet-status {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sede-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .periodos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     ENCABEZADO
+========================================================= -->
+
+<div class="header">
+
+    <h1>📊 Dashboard Financiero</h1>
+
+    <p>
+        Análisis jerárquico de cuentas y gastos
+    </p>
+
+</div>
+
+
+<div class="container">
+
+<!-- =========================================================
+     CARGAR EXCEL
+========================================================= -->
+
+<div class="upload-box">
+
+    <strong>📁 Archivo Excel</strong>
+
+    <div class="buttons">
+
+        <label class="file-button">
+
+            Seleccionar Excel
+
+            <input
+                type="file"
+                id="excelFile"
+                accept=".xlsx,.xls"
+            >
+
+        </label>
+
+        <button
+            class="refresh-button"
+            onclick="actualizarDatos()"
+        >
+            🔄 Actualizar datos
+        </button>
+
+        <button
+            class="clear-button"
+            onclick="limpiarDashboard()"
+        >
+            🗑 Limpiar
+        </button>
+
+    </div>
+
+    <div
+        class="status"
+        id="status"
+    >
+        Selecciona tu archivo Excel para comenzar.
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ESTADO HOJAS
+========================================================= -->
+
+<div class="sheet-status">
+
+    <div class="sheet" id="sheetCuentas">
+        <strong>CUENTAS PGGE</strong>
+        <span>Esperando...</span>
+    </div>
+
+    <div class="sheet" id="sheetRelacion">
+        <strong>RELACION_CUENTAS</strong>
+        <span>Esperando...</span>
+    </div>
+
+    <div class="sheet" id="sheetDetalle">
+        <strong>DETALLE GASTOS</strong>
+        <span>Esperando...</span>
+    </div>
+
+    <div class="sheet" id="sheetProveedores">
+        <strong>PROVEEDORES</strong>
+        <span>Esperando...</span>
+    </div>
+
+    <div class="sheet" id="sheetCentro">
+        <strong>CENTRO DE COSTO</strong>
+        <span>Esperando...</span>
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     KPIs
+========================================================= -->
+
+<div class="kpis">
+
+    <div class="kpi">
+
+        <h3>CUENTAS PRINCIPALES</h3>
+
+        <div
+            class="value"
+            id="kpiPrincipales"
+        >
+            0
+        </div>
+
+    </div>
+
+
+    <div class="kpi">
+
+        <h3>CUENTAS CON MOVIMIENTO</h3>
+
+        <div
+            class="value"
+            id="kpiCuentas"
+        >
+            0
+        </div>
+
+    </div>
+
+
+    <div class="kpi">
+
+        <h3>MOVIMIENTOS</h3>
+
+        <div
+            class="value"
+            id="kpiMovimientos"
+        >
+            0
+        </div>
+
+    </div>
+
+
+    <div class="kpi">
+
+        <h3>TOTAL GASTOS</h3>
+
+        <div
+            class="value"
+            id="kpiTotal"
+        >
+            0.00
+        </div>
+
+    </div>
+
+
+    <div class="kpi">
+
+        <h3>PROVEEDORES</h3>
+
+        <div
+            class="value"
+            id="kpiProveedores"
+        >
+            0
+        </div>
+
+    </div>
+
+
+    <div class="kpi">
+
+        <h3>ÚLTIMA ACTUALIZACIÓN</h3>
+
+        <div
+            class="value"
+            id="kpiHora"
+            style="font-size:16px"
+        >
+            --
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     PERIODO
+========================================================= -->
+
+<div
+    class="card"
+    style="margin-bottom:20px"
+>
+
+    <h2>📅 PERIODO</h2>
+
+    <div
+        id="periodos"
+        class="periodos-grid"
+    >
+
+        <button onclick="seleccionarPeriodo('ENERO')">
+            ☐ ENERO
+        </button>
+
+        <button onclick="seleccionarPeriodo('FEBRERO')">
+            ☐ FEBRERO
+        </button>
+
+        <button onclick="seleccionarPeriodo('MARZO')">
+            ☐ MARZO
+        </button>
+
+        <button onclick="seleccionarPeriodo('ABRIL')">
+            ☐ ABRIL
+        </button>
+
+        <button onclick="seleccionarPeriodo('MAYO')">
+            ☐ MAYO
+        </button>
+
+        <button onclick="seleccionarPeriodo('JUNIO')">
+            ☐ JUNIO
+        </button>
+
+        <button onclick="seleccionarPeriodo('JULIO')">
+            ☐ JULIO
+        </button>
+
+        <button onclick="seleccionarPeriodo('AGOSTO')">
+            ☐ AGOSTO
+        </button>
+
+        <button onclick="seleccionarPeriodo('SEPTIEMBRE')">
+            ☐ SEPTIEMBRE
+        </button>
+
+        <button onclick="seleccionarPeriodo('OCTUBRE')">
+            ☐ OCTUBRE
+        </button>
+
+        <button onclick="seleccionarPeriodo('NOVIEMBRE')">
+            ☐ NOVIEMBRE
+        </button>
+
+        <button onclick="seleccionarPeriodo('DICIEMBRE')">
+            ☐ DICIEMBRE
+        </button>
+
+    </div>
+
+
+    <div
+        id="periodoSeleccionado"
+        class="info"
+        style="margin-top:15px;"
+    >
+        PERÍODO: TODOS
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     RESUMEN POR SEDE
+========================================================= -->
+
+<div
+    class="card"
+    style="margin-bottom:20px"
+>
+
+    <h2>🏢 Gastos por sede</h2>
+
+    <p style="color:#64748b">
+        Selecciona una sede para ver en qué se gastó.
+    </p>
+
+    <div
+        class="sede-grid"
+        id="resumenSedes"
+    >
+
+        <div class="empty">
+            Carga el Excel para mostrar las sedes.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     CUENTAS + INFORMACIÓN
+========================================================= -->
+
+<div class="grid">
+
+    <!-- CUENTAS -->
+
+    <div class="card">
+
+        <h2>📁 Cuentas principales</h2>
+
+        <input
+            class="search"
+            id="searchAccount"
+            placeholder="🔎 Buscar cuenta o descripción..."
+            oninput="mostrarCuentas()"
+        >
+
+        <div id="accountTree">
+
+            <div class="empty">
+                Carga el Excel para mostrar las cuentas.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INFORMACIÓN -->
+
+    <div class="card">
+
+        <h2>📌 Información seleccionada</h2>
+
+        <div id="selectedInfo">
+
+            <div class="info">
+                Selecciona una cuenta o sede para ver información.
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ÚNICO PANEL DE DETALLE
+        ================================================== -->
+
+        <div
+            class="detail-panel"
+            id="detailPanel"
+        >
+
+            <div
+                class="detail-title"
+                id="detailTitle"
+            ></div>
+
+
+            <input
+                class="search"
+                id="searchDetail"
+                placeholder="🔎 Buscar en el detalle..."
+                oninput="filtrarDetalle()"
+            >
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Fecha</th>
+                            <th>Cuenta</th>
+                            <th>Documento</th>
+                            <th>Proveedor</th>
+                            <th>Centro de costo</th>
+                            <th>Sede</th>
+                            <th>Importe</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="detailBody"
+                    ></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+/* ============================================================
+   VARIABLES
+============================================================ */
+
+let workbookActual = null;
+
+let hojas = {};
+
+let datosCuentas = [];
+let datosRelacion = [];
+let datosDetalle = [];
+let datosProveedores = [];
+let datosCentroCosto = [];
+
+let cuentasPrincipales = {};
+
+let detalleActual = [];
+
+let cuentaSeleccionada = null;
+
+let periodoSeleccionado = "";
+
+
+/* ============================================================
+   CONFIGURACIÓN
+============================================================ */
+
+const NOMBRES_HOJAS = {
+
+    cuentas:
+        "CUENTAS PGGE",
+
+    relacion:
+        "RELACION_CUENTAS",
+
+    detalle:
+        "DETALLE GASTOS",
+
+    proveedores:
+        "PROVEEDORES",
+
+    centro:
+        "CENTRO DE COSTO"
+
+};
+
+
+/* ============================================================
+   FUNCIONES GENERALES
+============================================================ */
+
+function limpiarTexto(valor) {
+
+    if (
+        valor === null ||
+        valor === undefined
+    ) {
+        return "";
+    }
+
+    return String(valor)
+        .trim()
+        .replace(/\s+/g, " ");
+
+}
+
+
+function normalizar(valor) {
+
+    return limpiarTexto(valor)
+        .toUpperCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+}
+
+
+function codigo(valor) {
+
+    if (
+        valor === null ||
+        valor === undefined ||
+        valor === ""
+    ) {
+        return "";
+    }
+
+    if (typeof valor === "number") {
+
+        if (Number.isInteger(valor)) {
+            return String(valor);
+        }
+
+        return String(valor);
+
+    }
+
+    return limpiarTexto(valor)
+        .replace(/\.0$/, "");
+
+}
+
+
+function numero(valor) {
+
+    if (
+        valor === null ||
+        valor === undefined ||
+        valor === ""
+    ) {
+        return 0;
+    }
+
+    if (typeof valor === "number") {
+        return valor;
+    }
+
+    let texto =
+        String(valor)
+        .trim()
+        .replace(/\s/g, "");
+
+
+    if (
+        texto.includes(".") &&
+        texto.includes(",")
+    ) {
+
+        if (
+            texto.lastIndexOf(",") >
+            texto.lastIndexOf(".")
+        ) {
+
+            texto =
+                texto
+                .replace(/\./g, "")
+                .replace(",", ".");
+
+        } else {
+
+            texto =
+                texto.replace(/,/g, "");
+
+        }
+
+    } else if (
+        texto.includes(",") &&
+        !texto.includes(".")
+    ) {
+
+        texto =
+            texto.replace(",", ".");
+
+    }
+
+
+    texto =
+        texto.replace(
+            /[^\d.-]/g,
+            ""
+        );
+
+
+    const resultado =
+        parseFloat(texto);
+
+
+    return isNaN(resultado)
+        ? 0
+        : resultado;
+
+}
+
+
+function formato(valor) {
+
+    return new Intl.NumberFormat(
+        "es-PE",
+        {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }
+    ).format(valor);
+
+}
+
+
+function fecha(valor) {
+
+    if (!valor) {
+        return "";
+    }
+
+    if (valor instanceof Date) {
+
+        return valor.toLocaleDateString(
+            "es-PE"
+        );
+
+    }
+
+    return limpiarTexto(valor);
+
+}
+
+
+/* ============================================================
+   OBTENER VALOR DE COLUMNA
+============================================================ */
+
+function obtenerValor(
+    fila,
+    posibles
+) {
+
+    const claves =
+        Object.keys(fila);
+
+    for (
+        const posible of posibles
+    ) {
+
+        const objetivo =
+            normalizar(posible);
+
+        const encontrada =
+            claves.find(
+                clave =>
+                    normalizar(clave) ===
+                    objetivo
+            );
+
+        if (
+            encontrada !== undefined
+        ) {
+
+            return fila[encontrada];
+
+        }
+
+    }
+
+    return "";
+
+}
+
+
+/* ============================================================
+   CARGAR EXCEL
+============================================================ */
+
+document
+    .getElementById("excelFile")
+    .addEventListener(
+        "change",
+        function(event) {
+
+            const archivo =
+                event.target.files[0];
+
+            if (!archivo) {
+                return;
+            }
+
+            leerArchivo(archivo);
+
+        }
+    );
+
+
+function leerArchivo(archivo) {
+
+    document
+        .getElementById("status")
+        .innerText =
+            "⏳ Leyendo " +
+            archivo.name +
+            "...";
+
+
+    const lector =
+        new FileReader();
+
+
+    lector.onload =
+        function(event) {
+
+            try {
+
+                workbookActual =
+                    XLSX.read(
+                        event.target.result,
+                        {
+                            type: "array",
+                            cellDates: true
+                        }
+                    );
+
+
+                procesarWorkbook();
+
+            }
+            catch(error) {
+
+                console.error(error);
+
+                document
+                    .getElementById("status")
+                    .innerText =
+                        "❌ No se pudo leer el Excel.";
+
+                alert(
+                    "Error leyendo el archivo Excel."
+                );
+
+            }
+
+        };
+
+
+    lector.readAsArrayBuffer(
+        archivo
+    );
+
+}
+
+
+/* ============================================================
+   PROCESAR WORKBOOK
+============================================================ */
+
+function procesarWorkbook() {
+
+    hojas = {};
+
+
+    workbookActual
+        .SheetNames
+        .forEach(nombre => {
+
+            const hoja =
+                workbookActual
+                    .Sheets[nombre];
+
+
+            hojas[
+                normalizar(nombre)
+            ] =
+                XLSX.utils.sheet_to_json(
+                    hoja,
+                    {
+                        defval: "",
+                        raw: true
+                    }
+                );
+
+        });
+
+
+    datosCuentas =
+        obtenerHoja(
+            NOMBRES_HOJAS.cuentas
+        );
+
+
+    datosRelacion =
+        obtenerHoja(
+            NOMBRES_HOJAS.relacion
+        );
+
+
+    datosDetalle =
+        obtenerHoja(
+            NOMBRES_HOJAS.detalle
+        );
+
+
+    datosProveedores =
+        obtenerHoja(
+            NOMBRES_HOJAS.proveedores
+        );
+
+
+    datosCentroCosto =
+        obtenerHoja(
+            NOMBRES_HOJAS.centro
+        );
+
+
+    actualizarEstadoHojas();
+
+
+    construirCatalogos();
+
+
+    construirRelaciones();
+
+
+    actualizarKPIs();
+
+
+    mostrarCuentas();
+
+
+    mostrarSedes();
+
+
+    document
+        .getElementById("status")
+        .innerText =
+            "✅ Excel cargado correctamente. " +
+            workbookActual.SheetNames.length +
+            " pestañas encontradas.";
+
+
+    document
+        .getElementById("kpiHora")
+        .innerText =
+            new Date()
+                .toLocaleTimeString(
+                    "es-PE"
+                );
+
+}
+
+
+function obtenerHoja(nombre) {
+
+    const clave =
+        normalizar(nombre);
+
+    return hojas[clave] || null;
+
+}
+
+
+/* ============================================================
+   ESTADO HOJAS
+============================================================ */
+
+function estadoHoja(
+    id,
+    nombre,
+    datos
+) {
+
+    const elemento =
+        document.getElementById(id);
+
+
+    if (
+        datos &&
+        Array.isArray(datos)
+    ) {
+
+        elemento.className =
+            "sheet ok";
+
+
+        elemento.querySelector(
+            "span"
+        ).innerText =
+            "✓ " +
+            datos.length +
+            " registros";
+
+    }
+    else {
+
+        elemento.className =
+            "sheet error";
+
+
+        elemento.querySelector(
+            "span"
+        ).innerText =
+            "✕ Hoja no encontrada";
+
+    }
+
+}
+
+
+function actualizarEstadoHojas() {
+
+    estadoHoja(
+        "sheetCuentas",
+        NOMBRES_HOJAS.cuentas,
+        datosCuentas
+    );
+
+    estadoHoja(
+        "sheetRelacion",
+        NOMBRES_HOJAS.relacion,
+        datosRelacion
+    );
+
+    estadoHoja(
+        "sheetDetalle",
+        NOMBRES_HOJAS.detalle,
+        datosDetalle
+    );
+
+    estadoHoja(
+        "sheetProveedores",
+        NOMBRES_HOJAS.proveedores,
+        datosProveedores
+    );
+
+    estadoHoja(
+        "sheetCentro",
+        NOMBRES_HOJAS.centro,
+        datosCentroCosto
+    );
+
+}
+
+
+/* ============================================================
+   CATÁLOGOS
+============================================================ */
+
+let catalogoCuentas = {};
+let catalogoProveedores = {};
+let catalogoCentroCosto = {};
+
+
+function construirCatalogos() {
+
+    catalogoCuentas = {};
+    catalogoProveedores = {};
+    catalogoCentroCosto = {};
+
+
+    /*
+       CUENTAS PGGE
+    */
+
+    if (datosCuentas) {
+
+        datosCuentas.forEach(fila => {
+
+            const cod =
+                codigo(
+                    obtenerValor(
+                        fila,
+                        [
+                            "CODIGO",
+                            "CUENTA",
+                            "Código"
+                        ]
+                    )
+                );
+
+
+            const nombre =
+                limpiarTexto(
+                    obtenerValor(
+                        fila,
+                        [
+                            "NOMBRE",
+                            "DESCRIPCION",
+                            "DESCRIPCIÓN"
+                        ]
+                    )
+                );
+
+
+            if (cod) {
+
+                catalogoCuentas[cod] =
+                    nombre;
+
+            }
+
+        });
+
+    }
+
+
+    /*
+       PROVEEDORES
+    */
+
+    if (datosProveedores) {
+
+        datosProveedores.forEach(fila => {
+
+            const cod =
+                codigo(
+                    obtenerValor(
+                        fila,
+                        [
+                            "CODIGO",
+                            "Código"
+                        ]
+                    )
+                );
+
+
+            const nombre =
+                limpiarTexto(
+                    obtenerValor(
+                        fila,
+                        [
+                            "NOMBRE",
+                            "Nombre"
+                        ]
+                    )
+                );
+
+
+            if (cod) {
+
+                catalogoProveedores[cod] =
+                    nombre;
+
+            }
+
+        });
+
+    }
+
+
+    /*
+       CENTRO DE COSTO
+    */
+
+    if (datosCentroCosto) {
+
+        datosCentroCosto.forEach(fila => {
+
+            const cod =
+                codigo(
+                    obtenerValor(
+                        fila,
+                        [
+                            "CODIGO",
+                            "Código"
+                        ]
+                    )
+                );
+
+
+            const nombre =
+                limpiarTexto(
+                    obtenerValor(
+                        fila,
+                        [
+                            "NOMBRE",
+                            "Nombre"
+                        ]
+                    )
+                );
+
+
+            if (cod) {
+
+                catalogoCentroCosto[cod] =
+                    nombre;
+
+            }
+
+        });
+
+    }
+
+}
+
+
+/* ============================================================
+   RELACIÓN DE CUENTAS
+============================================================ */
+
+function construirRelaciones() {
+
+    cuentasPrincipales = {};
+
+
+    if (!datosRelacion) {
+        return;
+    }
+
+
+    datosRelacion.forEach(fila => {
+
+        const principal =
+            codigo(
+                obtenerValor(
+                    fila,
+                    [
+                        "CUENTA_PRINCIPAL",
+                        "CUENTA PRINCIPAL"
+                    ]
+                )
+            );
+
+
+        const principalNombre =
+            limpiarTexto(
+                obtenerValor(
+                    fila,
+                    [
+                        "DESCRIPCION_PRINCIPAL",
+                        "DESCRIPCIÓN_PRINCIPAL",
+                        "DESCRIPCION PRINCIPAL"
+                    ]
+                )
+            );
+
+
+        const cuenta =
+            codigo(
+                obtenerValor(
+                    fila,
+                    [
+                        "CUENTA"
+                    ]
+                )
+            );
+
+
+        const cuentaNombre =
+            limpiarTexto(
+                obtenerValor(
+                    fila,
+                    [
+                        "DESCRIPCION_CUENTA",
+                        "DESCRIPCIÓN_CUENTA",
+                        "DESCRIPCION CUENTA"
+                    ]
+                )
+            );
+
+
+        if (
+            !principal ||
+            !cuenta
+        ) {
+            return;
+        }
+
+
+        if (
+            !cuentasPrincipales[principal]
+        ) {
+
+            cuentasPrincipales[
+                principal
+            ] = {
+
+                codigo:
+                    principal,
+
+                nombre:
+                    principalNombre ||
+                    catalogoCuentas[
+                        principal
+                    ] ||
+                    "SIN DESCRIPCIÓN",
+
+                cuentas: []
+
+            };
+
+        }
+
+
+        const existe =
+            cuentasPrincipales[
+                principal
+            ]
+            .cuentas
+            .some(
+                x =>
+                    x.codigo === cuenta
+            );
+
+
+        if (!existe) {
+
+            cuentasPrincipales[
+                principal
+            ]
+            .cuentas
+            .push({
+
+                codigo:
+                    cuenta,
+
+                nombre:
+                    cuentaNombre ||
+                    catalogoCuentas[
+                        cuenta
+                    ] ||
+                    "SIN DESCRIPCIÓN"
+
+            });
+
+        }
+
+    });
+
+
+    Object.values(
+        cuentasPrincipales
+    )
+    .forEach(principal => {
+
+        principal.cuentas.sort(
+            (a, b) =>
+                a.codigo.localeCompare(
+                    b.codigo,
+                    undefined,
+                    {
+                        numeric: true
+                    }
+                )
+        );
+
+    });
+
+}
+
+
+/* ============================================================
+   FILTRO POR PERIODO
+============================================================ */
+
+function filaPertenecePeriodo(fila) {
+
+    /*
+       Sin período seleccionado:
+       mostrar todo.
+    */
+
+    if (
+        !periodoSeleccionado ||
+        periodoSeleccionado === "TODOS"
+    ) {
+        return true;
+    }
+
+
+    const valorPeriodo =
+        obtenerValor(
+            fila,
+            [
+                "PERIODO",
+                "PERÍODO"
+            ]
+        );
+
+
+    if (
+        valorPeriodo === null ||
+        valorPeriodo === undefined ||
+        valorPeriodo === ""
+    ) {
+        return false;
+    }
+
+
+    const periodo =
+        normalizar(
+            periodoSeleccionado
+        );
+
+
+    const meses = {
+
+        "ENERO": "01",
+        "FEBRERO": "02",
+        "MARZO": "03",
+        "ABRIL": "04",
+        "MAYO": "05",
+        "JUNIO": "06",
+        "JULIO": "07",
+        "AGOSTO": "08",
+        "SEPTIEMBRE": "09",
+        "OCTUBRE": "10",
+        "NOVIEMBRE": "11",
+        "DICIEMBRE": "12"
+
+    };
+
+
+    const numeroMes =
+        meses[periodo];
+
+
+    if (!numeroMes) {
+        return false;
+    }
+
+
+    /*
+       CASO 1:
+       Fecha real de Excel.
+    */
+
+    if (
+        valorPeriodo instanceof Date
+    ) {
+
+        const mes =
+            String(
+                valorPeriodo.getMonth() + 1
+            ).padStart(2, "0");
+
+
+        return (
+            mes === numeroMes
+        );
+
+    }
+
+
+    /*
+       CASO 2:
+       Texto.
+    */
+
+    const texto =
+        normalizar(
+            limpiarTexto(
+                valorPeriodo
+            )
+        );
+
+
+    /*
+       Ejemplo:
+       2027-01
+       2027-01-01
+    */
+
+    if (
+        texto.includes("-")
+    ) {
+
+        const partes =
+            texto.split("-");
+
+
+        if (
+            partes.length >= 2
+        ) {
+
+            const mes =
+                partes[1]
+                    .substring(0, 2)
+                    .padStart(2, "0");
+
+
+            return (
+                mes === numeroMes
+            );
+
+        }
+
+    }
+
+
+    /*
+       Ejemplo:
+       01/2027
+    */
+
+    if (
+        texto.includes("/")
+    ) {
+
+        const partes =
+            texto.split("/");
+
+
+        if (
+            partes.length >= 2
+        ) {
+
+            if (
+                partes[0].length <= 2
+            ) {
+
+                return (
+                    partes[0]
+                        .padStart(2, "0") ===
+                    numeroMes
+                );
+
+            }
+
+        }
+
+    }
+
+
+    /*
+       Si directamente dice:
+       ENERO
+    */
+
+    return (
+        texto === periodo
+    );
+
+}
+
+
+/* ============================================================
+   TOTAL DE UNA CUENTA
+============================================================ */
+
+function totalCuenta(cuenta) {
+
+    if (!datosDetalle) {
+        return 0;
+    }
+
+
+    return datosDetalle.reduce(
+        (total, fila) => {
+
+            /*
+               FILTRO DE PERIODO
+            */
+
+            if (
+                !filaPertenecePeriodo(fila)
+            ) {
+
+                return total;
+
+            }
+
+
+            const codigoFila =
+                codigo(
+                    obtenerValor(
+                        fila,
+                        ["CUENTA"]
+                    )
+                );
+
+
+            if (
+                codigoFila ===
+                codigo(cuenta)
+            ) {
+
+                return total +
+                    numero(
+                        obtenerValor(
+                            fila,
+                            ["IMPORTE"]
+                        )
+                    );
+
+            }
+
+
+            return total;
+
+        },
+        0
+    );
+
+}
+
+
+/* ============================================================
+   TOTAL PRINCIPAL
+============================================================ */
+
+function totalPrincipal(
+    principal
+) {
+
+    if (
+        !principal ||
+        !principal.cuentas
+    ) {
+        return 0;
+    }
+
+
+    return principal
+        .cuentas
+        .reduce(
+            (total, cuenta) =>
+                total +
+                totalCuenta(
+                    cuenta.codigo
+                ),
+            0
+        );
+
+}
+
+
+/* ============================================================
+   KPIs
+============================================================ */
+
+function actualizarKPIs() {
+
+    const principales =
+        Object.keys(
+            cuentasPrincipales
+        ).length;
+
+
+    const cuentasConMovimiento =
+        new Set();
+
+
+    let total = 0;
+
+    let movimientos = 0;
+
+
+    if (datosDetalle) {
+
+        datosDetalle.forEach(fila => {
+
+            /*
+               FILTRO DE PERIODO
+            */
+
+            if (
+                !filaPertenecePeriodo(fila)
+            ) {
+
+                return;
+
+            }
+
+
+            movimientos++;
+
+
+            total +=
+                numero(
+                    obtenerValor(
+                        fila,
+                        ["IMPORTE"]
+                    )
+                );
+
+
+            const cuenta =
+                codigo(
+                    obtenerValor(
+                        fila,
+                        ["CUENTA"]
+                    )
+                );
+
+
+            if (cuenta) {
+
+                cuentasConMovimiento.add(
+                    cuenta
+                );
+
+            }
+
+        });
+
+    }
+
+
+    document
+        .getElementById(
+            "kpiPrincipales"
+        )
+        .innerText =
+            principales;
+
+
+    document
+        .getElementById(
+            "kpiCuentas"
+        )
+        .innerText =
+            cuentasConMovimiento.size;
+
+
+    document
+        .getElementById(
+            "kpiMovimientos"
+        )
+        .innerText =
+            movimientos;
+
+
+    document
+        .getElementById(
+            "kpiTotal"
+        )
+        .innerText =
+            formato(total);
+
+
+    /*
+       Proveedores con movimiento
+       en el período.
+    */
+
+    const proveedores =
+        new Set();
+
+
+    if (datosDetalle) {
+
+        datosDetalle.forEach(fila => {
+
+            if (
+                !filaPertenecePeriodo(fila)
+            ) {
+                return;
+            }
+
+
+            const proveedor =
+                codigo(
+                    obtenerValor(
+                        fila,
+                        ["PROVEEDOR"]
+                    )
+                );
+
+
+            if (proveedor) {
+
+                proveedores.add(
+                    proveedor
+                );
+
+            }
+
+        });
+
+    }
+
+
+    document
+        .getElementById(
+            "kpiProveedores"
+        )
+        .innerText =
+            proveedores.size;
+
+}
+
+
+/* ============================================================
+   MOSTRAR CUENTAS
+============================================================ */
+
+function mostrarCuentas() {
+
+    const contenedor =
+        document.getElementById(
+            "accountTree"
+        );
+
+
+    contenedor.innerHTML = "";
+
+
+    const buscar =
+        normalizar(
+            document
+                .getElementById(
+                    "searchAccount"
+                )
+                .value
+        );
+
+
+    const lista =
+        Object.values(
+            cuentasPrincipales
+        )
+        .filter(principal => {
+
+            if (!buscar) {
+                return true;
+            }
+
+
+            const texto =
+                normalizar(
+                    principal.codigo +
+                    " " +
+                    principal.nombre
+                );
+
+
+            const tienePrincipal =
+                texto.includes(
+                    buscar
+                );
+
+
+            const tieneCuenta =
+                principal
+                    .cuentas
+                    .some(cuenta => {
+
+                        return normalizar(
+                            cuenta.codigo +
+                            " " +
+                            cuenta.nombre
+                        )
+                        .includes(
+                            buscar
+                        );
+
+                    });
+
+
+            return (
+                tienePrincipal ||
+                tieneCuenta
+            );
+
+        })
+        .sort(
+            (a, b) =>
+                a.codigo.localeCompare(
+                    b.codigo,
+                    undefined,
+                    {
+                        numeric: true
+                    }
+                )
+        );
+
+
+    if (
+        lista.length === 0
+    ) {
+
+        contenedor.innerHTML =
+            `
+            <div class="empty">
+                No se encontraron cuentas.
+            </div>
+            `;
+
+        return;
+
+    }
+
+
+    lista.forEach(principal => {
+
+        const total =
+            totalPrincipal(
+                principal
+            );
+
+
+        const bloque =
+            document.createElement(
+                "div"
+            );
+
+
+        bloque.className =
+            "account-main";
+
+
+        const encabezado =
+            document.createElement(
+                "div"
+            );
+
+
+        encabezado.className =
+            "account-main-header";
+
+
+        const claseTotal =
+            total === 0
+                ? "zero-value"
+                : "";
+
+
+        encabezado.innerHTML = `
+
+            <div class="account-title">
+
+                <span class="arrow">
+                    ▶
+                </span>
+
+                <span class="account-code">
+                    ${principal.codigo}
+                </span>
+
+                <span class="account-name">
+                    ${principal.nombre}
+                </span>
+
+            </div>
+
+            <div
+                class="account-total ${claseTotal}"
+            >
+                ${formato(total)}
+            </div>
+
+        `;
+
+
+        const hijos =
+            document.createElement(
+                "div"
+            );
+
+
+        hijos.className =
+            "children";
+
+
+        const buscarActual =
+            normalizar(
+                document
+                    .getElementById(
+                        "searchAccount"
+                    )
+                    .value
+            );
+
+
+        principal
+            .cuentas
+            .forEach(cuenta => {
+
+                const totalCuentaActual =
+                    totalCuenta(
+                        cuenta.codigo
+                    );
+
+
+                const fila =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                fila.className =
+                    "account-child";
+
+
+                const claseCuenta =
+                    totalCuentaActual === 0
+                        ? "zero-value"
+                        : "";
+
+
+                fila.innerHTML = `
+
+                    <div class="child-info">
+
+                        <span class="child-code">
+                            ↳ ${cuenta.codigo}
+                        </span>
+
+                        <span>
+                            ${cuenta.nombre}
+                        </span>
+
+                    </div>
+
+                    <strong
+                        class="${claseCuenta}"
+                    >
+                        ${formato(
+                            totalCuentaActual
+                        )}
+                    </strong>
+
+                `;
+
+
+                fila.onclick =
+                    function(event) {
+
+                        event.stopPropagation();
+
+
+                        mostrarDetalleCuenta(
+                            cuenta.codigo,
+                            cuenta.nombre,
+                            principal.codigo,
+                            principal.nombre
+                        );
+
+                    };
+
+
+                hijos.appendChild(
+                    fila
+                );
+
+            });
+
+
+        encabezado.onclick =
+            function() {
+
+                const abierto =
+                    hijos.classList.contains(
+                        "open"
+                    );
+
+
+                document
+                    .querySelectorAll(
+                        ".children"
+                    )
+                    .forEach(x => {
+
+                        x.classList.remove(
+                            "open"
+                        );
+
+                    });
+
+
+                document
+                    .querySelectorAll(
+                        ".arrow"
+                    )
+                    .forEach(x => {
+
+                        x.innerText =
+                            "▶";
+
+                    });
+
+
+                if (!abierto) {
+
+                    hijos.classList.add(
+                        "open"
+                    );
+
+
+                    encabezado
+                        .querySelector(
+                            ".arrow"
+                        )
+                        .innerText =
+                            "▼";
+
+
+                    mostrarInfoPrincipal(
+                        principal
+                    );
+
+                }
+
+            };
+
+
+        bloque.appendChild(
+            encabezado
+        );
+
+
+        bloque.appendChild(
+            hijos
+        );
+
+
+        contenedor.appendChild(
+            bloque
+        );
+
+
+        /*
+           Abrir automáticamente
+           cuando se busca una cuenta.
+        */
+
+        if (
+            buscarActual &&
+            principal.cuentas.some(
+                cuenta =>
+                    normalizar(
+                        cuenta.codigo +
+                        " " +
+                        cuenta.nombre
+                    )
+                    .includes(
+                        buscarActual
+                    )
+            )
+        ) {
+
+            hijos.classList.add(
+                "open"
+            );
+
+
+            encabezado
+                .querySelector(
+                    ".arrow"
+                )
+                .innerText =
+                    "▼";
+
+        }
+
+    });
+
+}
+
+
+/* ============================================================
+   INFORMACIÓN PRINCIPAL
+============================================================ */
+
+function mostrarInfoPrincipal(
+    principal
+) {
+
+    const total =
+        totalPrincipal(
+            principal
+        );
+
+
+    document
+        .getElementById(
+            "selectedInfo"
+        )
+        .innerHTML = `
+
+        <div class="info">
+
+            <strong>
+                ${principal.codigo}
+                -
+                ${principal.nombre}
+            </strong>
+
+            <br><br>
+
+            Período:
+            <strong>
+                ${
+                    periodoSeleccionado ||
+                    "TODOS"
+                }
+            </strong>
+
+            <br><br>
+
+            Cuentas asociadas:
+            <strong>
+                ${principal.cuentas.length}
+            </strong>
+
+            <br>
+
+            Total:
+            <strong>
+                ${formato(total)}
+            </strong>
+
+        </div>
+
+    `;
+
+
+    ocultarDetalle();
+
+}
+
+
+/* ============================================================
+   MOSTRAR DETALLE CUENTA
+============================================================ */
+
+function mostrarDetalleCuenta(
+    cuenta,
+    nombre,
+    principal,
+    nombrePrincipal
+) {
+
+    cuentaSeleccionada =
+        cuenta;
+
+
+    detalleActual =
+        obtenerDetalleCuenta(
+            cuenta
+        );
+
+
+    document
+        .getElementById(
+            "detailPanel"
+        )
+        .classList.add(
+            "active"
+        );
+
+
+    document
+        .getElementById(
+            "searchDetail"
+        )
+        .value = "";
+
+
+    const total =
+        detalleActual.reduce(
+            (suma, fila) =>
+                suma +
+                numero(
+                    obtenerValor(
+                        fila,
+                        ["IMPORTE"]
+                    )
+                ),
+            0
+        );
+
+
+    document
+        .getElementById(
+            "detailTitle"
+        )
+        .innerHTML = `
+
+        <h3>
+            ${cuenta} -
+            ${nombre}
+        </h3>
+
+        <p>
+            Cuenta principal:
+            <strong>
+                ${principal} -
+                ${nombrePrincipal}
+            </strong>
+        </p>
+
+        <p>
+            Período:
+            <strong>
+                ${
+                    periodoSeleccionado ||
+                    "TODOS"
+                }
+            </strong>
+        </p>
+
+        <p>
+            Movimientos:
+            <strong>
+                ${detalleActual.length}
+            </strong>
+
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+
+            Total:
+            <strong>
+                ${formato(total)}
+            </strong>
+        </p>
+
+    `;
+
+
+    document
+        .getElementById(
+            "selectedInfo"
+        )
+        .innerHTML = `
+
+        <div class="info">
+
+            <strong>
+                Cuenta seleccionada
+            </strong>
+
+            <br><br>
+
+            ${cuenta} -
+            ${nombre}
+
+            <br><br>
+
+            Período:
+            <strong>
+                ${
+                    periodoSeleccionado ||
+                    "TODOS"
+                }
+            </strong>
+
+            <br><br>
+
+            Total:
+            <strong>
+                ${formato(total)}
+            </strong>
+
+        </div>
+
+    `;
+
+
+    mostrarTablaDetalle(
+        detalleActual
+    );
+
+
+    document
+        .getElementById(
+            "detailPanel"
+        )
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+}
+
+
+/* ============================================================
+   OBTENER DETALLE CUENTA
+============================================================ */
+
+function obtenerDetalleCuenta(
+    cuenta
+) {
+
+    if (!datosDetalle) {
+        return [];
+    }
+
+
+    return datosDetalle
+        .filter(fila => {
+
+            /*
+               FILTRO DE PERIODO
+            */
+
+            if (
+                !filaPertenecePeriodo(fila)
+            ) {
+
+                return false;
+
+            }
+
+
+            const cuentaFila =
+                codigo(
+                    obtenerValor(
+                        fila,
+                        ["CUENTA"]
+                    )
+                );
+
+
+            return (
+                cuentaFila ===
+                codigo(cuenta)
+            );
+
+        });
+
+}
+
+
+/* ============================================================
+   TABLA DETALLE
+============================================================ */
+
+function mostrarTablaDetalle(
+    lista
+) {
+
+    const tbody =
+        document.getElementById(
+            "detailBody"
+        );
+
+
+    tbody.innerHTML = "";
+
+
+    if (
+        !lista ||
+        lista.length === 0
+    ) {
+
+        tbody.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="7"
+                    class="empty"
+                >
+                    No existen movimientos
+                    para esta cuenta
+                    en el período seleccionado.
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    lista.forEach(fila => {
+
+        const fechaValor =
+            obtenerValor(
+                fila,
+                ["FECHA"]
+            );
+
+
+        const cuenta =
+            codigo(
+                obtenerValor(
+                    fila,
+                    ["CUENTA"]
+                )
+            );
+
+
+        const documento =
+            limpiarTexto(
+                obtenerValor(
+                    fila,
+                    ["DOCUMENTO"]
+                )
+            );
+
+
+        const proveedorCodigo =
+            codigo(
+                obtenerValor(
+                    fila,
+                    ["PROVEEDOR"]
+                )
+            );
+
+
+        const proveedorNombre =
+            catalogoProveedores[
+                proveedorCodigo
+            ] ||
+            proveedorCodigo ||
+            "SIN PROVEEDOR";
+
+
+        const centroCodigo =
+            codigo(
+                obtenerValor(
+                    fila,
+                    [
+                        "CENTRO DE COSTO",
+                        "CENTRO_COSTO"
+                    ]
+                )
+            );
+
+
+        const centroNombre =
+            catalogoCentroCosto[
+                centroCodigo
+            ] ||
+            centroCodigo ||
+            "SIN CENTRO";
+
+
+        const sedeCodigo =
+            codigo(
+                obtenerValor(
+                    fila,
+                    [
+                        "CODIGO_SEDE",
+                        "CODIGO SEDE",
+                        "SEDE"
+                    ]
+                )
+            );
+
+
+        const sedeNombre =
+            catalogoCentroCosto[
+                sedeCodigo
+            ] ||
+            sedeCodigo ||
+            "SIN SEDE";
+
+
+        const importe =
+            numero(
+                obtenerValor(
+                    fila,
+                    ["IMPORTE"]
+                )
+            );
+
+
+        const clase =
+            importe < 0
+                ? "negative"
+                : "positive";
+
+
+        const tr =
+            document.createElement(
+                "tr"
+            );
+
+
+        tr.innerHTML = `
+
+            <td>
+                ${fecha(fechaValor)}
+            </td>
+
+            <td>
+                ${cuenta}
+            </td>
+
+            <td>
+                ${documento}
+            </td>
+
+            <td>
+                ${proveedorNombre}
+            </td>
+
+            <td>
+                ${centroNombre}
+                <small>
+                    (${centroCodigo})
+                </small>
+            </td>
+
+            <td>
+                ${sedeNombre}
+                <small>
+                    (${sedeCodigo})
+                </small>
+            </td>
+
+            <td
+                class="number ${clase}"
+            >
+                ${formato(importe)}
+            </td>
+
+        `;
+
+
+        tbody.appendChild(
+            tr
+        );
+
+    });
+
+}
+
+
+/* ============================================================
+   FILTRAR DETALLE
+============================================================ */
+
+function filtrarDetalle() {
+
+    const texto =
+        normalizar(
+            document
+                .getElementById(
+                    "searchDetail"
+                )
+                .value
+        );
+
+
+    if (!texto) {
+
+        mostrarTablaDetalle(
+            detalleActual
+        );
+
+        return;
+
+    }
+
+
+    const filtrado =
+        detalleActual.filter(
+            fila => {
+
+                const valores = [
+
+                    obtenerValor(
+                        fila,
+                        ["FECHA"]
+                    ),
+
+                    obtenerValor(
+                        fila,
+                        ["CUENTA"]
+                    ),
+
+                    obtenerValor(
+                        fila,
+                        ["DOCUMENTO"]
+                    ),
+
+                    obtenerValor(
+                        fila,
+                        ["PROVEEDOR"]
+                    ),
+
+                    obtenerValor(
+                        fila,
+                        [
+                            "CENTRO DE COSTO",
+                            "CENTRO_COSTO"
+                        ]
+                    ),
+
+                    obtenerValor(
+                        fila,
+                        [
+                            "CODIGO_SEDE",
+                            "CODIGO SEDE",
+                            "SEDE"
+                        ]
+                    ),
+
+                    obtenerValor(
+                        fila,
+                        ["IMPORTE"]
+                    )
+
+                ].join(" ");
+
+
+                return normalizar(
+                    valores
+                ).includes(
+                    texto
+                );
+
+            }
+        );
+
+
+    mostrarTablaDetalle(
+        filtrado
+    );
+
+}
+
+
+/* ============================================================
+   OCULTAR DETALLE
+============================================================ */
+
+function ocultarDetalle() {
+
+    document
+        .getElementById(
+            "detailPanel"
+        )
+        .classList.remove(
+            "active"
+        );
+
+}
+
+
+/* ============================================================
+   RESUMEN POR SEDE
+============================================================ */
+
+function mostrarSedes() {
+
+    const contenedor =
+        document.getElementById(
+            "resumenSedes"
+        );
+
+
+    if (!contenedor) {
+
+        console.error(
+            "No existe resumenSedes"
+        );
+
+        return;
+
+    }
+
+
+    contenedor.innerHTML = "";
+
+
+    if (
+        !datosDetalle ||
+        datosDetalle.length === 0
+    ) {
+
+        contenedor.innerHTML = `
+
+            <div class="empty">
+                No hay datos de gastos para mostrar.
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const sedes = {};
+
+
+    /*
+       PRIMERO CREAMOS TODAS LAS SEDES
+       EXISTENTES EN EL EXCEL.
+       Así una sede sin movimiento
+       en enero aparecerá con 0.00.
+    */
+
+    datosDetalle.forEach(fila => {
+
+        const sedeValor =
+            obtenerValor(
+                fila,
+                [
+                    "SEDE",
+                    "Sede",
+                    "CODIGO_SEDE",
+                    "CODIGO SEDE"
+                ]
+            );
+
+
+        const sede =
+            limpiarTexto(
+                sedeValor
+            );
+
+
+        if (!sede) {
+            return;
+        }
+
+
+        if (!sedes[sede]) {
+
+            sedes[sede] = {
+
+                nombre:
+                    sede,
+
+                total:
+                    0,
+
+                movimientos:
+                    0
+
+            };
+
+        }
+
+    });
+
+
+    /*
+       AHORA CALCULAMOS SOLO EL PERÍODO.
+    */
+
+    datosDetalle.forEach(fila => {
+
+        if (
+            !filaPertenecePeriodo(fila)
+        ) {
+
+            return;
+
+        }
+
+
+        const sedeValor =
+            obtenerValor(
+                fila,
+                [
+                    "SEDE",
+                    "Sede",
+                    "CODIGO_SEDE",
+                    "CODIGO SEDE"
+                ]
+            );
+
+
+        const sede =
+            limpiarTexto(
+                sedeValor
+            );
+
+
+        if (!sede) {
+            return;
+        }
+
+
+        const importe =
+            numero(
+                obtenerValor(
+                    fila,
+                    [
+                        "IMPORTE",
+                        "Importe"
+                    ]
+                )
+            );
+
+
+        if (!sedes[sede]) {
+
+            sedes[sede] = {
+
+                nombre:
+                    sede,
+
+                total:
+                    0,
+
+                movimientos:
+                    0
+
+            };
+
+        }
+
+
+        sedes[sede].total +=
+            importe;
+
+
+        sedes[sede].movimientos++;
+
+    });
+
+
+    const lista =
+        Object.values(
+            sedes
+        );
+
+
+    /*
+       ORDENAR:
+       primero las que tienen movimiento,
+       luego las que tienen cero.
+    */
+
+    lista.sort(
+        (a, b) => {
+
+            if (
+                b.movimientos !==
+                a.movimientos
+            ) {
+
+                return (
+                    b.movimientos -
+                    a.movimientos
+                );
+
+            }
+
+
+            return (
+                Math.abs(b.total) -
+                Math.abs(a.total)
+            );
+
+        }
+    );
+
+
+    /*
+       MOSTRAR SEDES
+    */
+
+    lista.forEach(sede => {
+
+        const tarjeta =
+            document.createElement(
+                "div"
+            );
+
+
+        tarjeta.className =
+            "sede-card";
+
+
+        tarjeta.style.cursor =
+            "pointer";
+
+
+        const claseTotal =
+            sede.total === 0
+                ? "zero-value"
+                : "";
+
+
+        tarjeta.innerHTML = `
+
+            <div class="name">
+                🏢 SEDE
+            </div>
+
+            <strong>
+                ${sede.nombre}
+            </strong>
+
+            <div
+                class="amount ${claseTotal}"
+            >
+                ${formato(sede.total)}
+            </div>
+
+            <small
+                style="
+                    display:block;
+                    margin-top:8px;
+                    color:#64748b;
+                "
+            >
+                ${sede.movimientos}
+                movimientos
+            </small>
+
+            <button
+                style="
+                    margin-top:12px;
+                    background:#2563eb;
+                    color:white;
+                    width:100%;
+                "
+            >
+                Ver gastos →
+            </button>
+
+        `;
+
+
+        tarjeta.onclick =
+            function() {
+
+                mostrarGastosSede(
+                    sede.nombre
+                );
+
+            };
+
+
+        contenedor.appendChild(
+            tarjeta
+        );
+
+    });
+
+}
+
+
+/* ============================================================
+   GASTOS DE UNA SEDE
+============================================================ */
+
+function mostrarGastosSede(
+    sedeSeleccionada
+) {
+
+    const movimientos =
+        datosDetalle.filter(
+            fila => {
+
+                /*
+                   FILTRO DE PERIODO
+                */
+
+                if (
+                    !filaPertenecePeriodo(
+                        fila
+                    )
+                ) {
+
+                    return false;
+
+                }
+
+
+                const sede =
+                    limpiarTexto(
+                        obtenerValor(
+                            fila,
+                            [
+                                "SEDE",
+                                "Sede",
+                                "CODIGO_SEDE",
+                                "CODIGO SEDE"
+                            ]
+                        )
+                    );
+
+
+                return (
+                    normalizar(sede) ===
+                    normalizar(
+                        sedeSeleccionada
+                    )
+                );
+
+            }
+        );
+
+
+    /*
+       AGRUPAR POR CUENTA
+    */
+
+    const cuentas = {};
+
+
+    movimientos.forEach(fila => {
+
+        const cuenta =
+            codigo(
+                obtenerValor(
+                    fila,
+                    ["CUENTA"]
+                )
+            );
+
+
+        if (!cuenta) {
+            return;
+        }
+
+
+        const importe =
+            numero(
+                obtenerValor(
+                    fila,
+                    ["IMPORTE"]
+                )
+            );
+
+
+        if (!cuentas[cuenta]) {
+
+            cuentas[cuenta] = {
+
+                codigo:
+                    cuenta,
+
+                nombre:
+                    catalogoCuentas[
+                        cuenta
+                    ] ||
+                    "SIN DESCRIPCIÓN",
+
+                total:
+                    0,
+
+                movimientos:
+                    0
+
+            };
+
+        }
+
+
+        cuentas[cuenta].total +=
+            importe;
+
+
+        cuentas[cuenta].movimientos++;
+
+    });
+
+
+    const lista =
+        Object.values(
+            cuentas
+        );
+
+
+    lista.sort(
+        (a, b) =>
+            Math.abs(b.total) -
+            Math.abs(a.total)
+    );
+
+
+    /*
+       TOTAL SEDE
+    */
+
+    const total =
+        movimientos.reduce(
+            (suma, fila) =>
+                suma +
+                numero(
+                    obtenerValor(
+                        fila,
+                        ["IMPORTE"]
+                    )
+                ),
+            0
+        );
+
+
+    const info =
+        document.getElementById(
+            "selectedInfo"
+        );
+
+
+    info.innerHTML = `
+
+        <div class="info">
+
+            <strong>
+                🏢 SEDE:
+                ${sedeSeleccionada}
+            </strong>
+
+            <br><br>
+
+            Período:
+            <strong>
+                ${
+                    periodoSeleccionado ||
+                    "TODOS"
+                }
+            </strong>
+
+            <br><br>
+
+            Movimientos:
+            <strong>
+                ${movimientos.length}
+            </strong>
+
+            <br>
+
+            Total gastado:
+            <strong>
+                ${formato(total)}
+            </strong>
+
+        </div>
+
+        <br>
+
+        <div class="card">
+
+            <h2>
+                📊 ¿En qué gastó
+                ${sedeSeleccionada}?
+            </h2>
+
+            <div id="cuentasSede">
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    const contenedor =
+        document.getElementById(
+            "cuentasSede"
+        );
+
+
+    if (
+        lista.length === 0
+    ) {
+
+        contenedor.innerHTML = `
+
+            <div class="empty">
+
+                No se encontraron cuentas
+                para esta sede en el
+                período seleccionado.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    lista.forEach(cuenta => {
+
+        const fila =
+            document.createElement(
+                "div"
+            );
+
+
+        fila.className =
+            "account-child";
+
+
+        fila.innerHTML = `
+
+            <div class="child-info">
+
+                <span class="child-code">
+                    ${cuenta.codigo}
+                </span>
+
+                <span>
+                    ${cuenta.nombre}
+                </span>
+
+            </div>
+
+            <div>
+
+                <strong>
+                    ${formato(
+                        cuenta.total
+                    )}
+                </strong>
+
+                <br>
+
+                <small
+                    style="
+                        color:#64748b;
+                    "
+                >
+                    ${cuenta.movimientos}
+                    movimientos
+                </small>
+
+            </div>
+
+        `;
+
+
+        fila.onclick =
+            function() {
+
+                mostrarDetalleSedeCuenta(
+                    sedeSeleccionada,
+                    cuenta.codigo,
+                    cuenta.nombre
+                );
+
+            };
+
+
+        contenedor.appendChild(
+            fila
+        );
+
+    });
+
+}
+
+
+/* ============================================================
+   DETALLE SEDE + CUENTA
+============================================================ */
+
+function mostrarDetalleSedeCuenta(
+    sedeSeleccionada,
+    cuentaSeleccionada,
+    nombreCuenta
+) {
+
+    const movimientos =
+        datosDetalle.filter(
+            fila => {
+
+                /*
+                   FILTRO DE PERIODO
+                */
+
+                if (
+                    !filaPertenecePeriodo(
+                        fila
+                    )
+                ) {
+
+                    return false;
+
+                }
+
+
+                const sede =
+                    limpiarTexto(
+                        obtenerValor(
+                            fila,
+                            [
+                                "SEDE",
+                                "Sede",
+                                "CODIGO_SEDE",
+                                "CODIGO SEDE"
+                            ]
+                        )
+                    );
+
+
+                const cuenta =
+                    codigo(
+                        obtenerValor(
+                            fila,
+                            ["CUENTA"]
+                        )
+                    );
+
+
+                return (
+
+                    normalizar(sede) ===
+                    normalizar(
+                        sedeSeleccionada
+                    )
+
+                    &&
+
+                    cuenta ===
+                    codigo(
+                        cuentaSeleccionada
+                    )
+
+                );
+
+            }
+        );
+
+
+    detalleActual =
+        movimientos;
+
+
+    document
+        .getElementById(
+            "detailPanel"
+        )
+        .classList.add(
+            "active"
+        );
+
+
+    document
+        .getElementById(
+            "searchDetail"
+        )
+        .value = "";
+
+
+    const total =
+        movimientos.reduce(
+            (suma, fila) =>
+                suma +
+                numero(
+                    obtenerValor(
+                        fila,
+                        ["IMPORTE"]
+                    )
+                ),
+            0
+        );
+
+
+    document
+        .getElementById(
+            "detailTitle"
+        )
+        .innerHTML = `
+
+        <h3>
+            🏢 ${sedeSeleccionada}
+        </h3>
+
+        <p>
+            Cuenta:
+            <strong>
+                ${cuentaSeleccionada}
+                -
+                ${nombreCuenta}
+            </strong>
+        </p>
+
+        <p>
+            Período:
+            <strong>
+                ${
+                    periodoSeleccionado ||
+                    "TODOS"
+                }
+            </strong>
+        </p>
+
+        <p>
+            Movimientos:
+            <strong>
+                ${movimientos.length}
+            </strong>
+
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+
+            Total:
+            <strong>
+                ${formato(total)}
+            </strong>
+        </p>
+
+    `;
+
+
+    mostrarTablaDetalle(
+        movimientos
+    );
+
+
+    document
+        .getElementById(
+            "detailPanel"
+        )
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+}
+
+
+/* ============================================================
+   ACTUALIZAR DATOS
+============================================================ */
+
+function actualizarDatos() {
+
+    if (!workbookActual) {
+
+        alert(
+            "Primero selecciona un archivo Excel."
+        );
+
+        return;
+
+    }
+
+
+    procesarWorkbook();
+
+
+    if (cuentaSeleccionada) {
+
+        const cuenta =
+            cuentaSeleccionada;
+
+
+        const nombre =
+            catalogoCuentas[
+                cuenta
+            ] || "";
+
+
+        const relaciones =
+            Object.values(
+                cuentasPrincipales
+            );
+
+
+        let principalEncontrada =
+            null;
+
+
+        relaciones.forEach(
+            principal => {
+
+                if (
+                    principal.cuentas.some(
+                        c =>
+                            c.codigo ===
+                            cuenta
+                    )
+                ) {
+
+                    principalEncontrada =
+                        principal;
+
+                }
+
+            }
+        );
+
+
+        if (principalEncontrada) {
+
+            mostrarDetalleCuenta(
+                cuenta,
+                nombre,
+                principalEncontrada.codigo,
+                principalEncontrada.nombre
+            );
+
+        }
+
+    }
+
+}
+
+
+/* ============================================================
+   LIMPIAR DASHBOARD
+============================================================ */
+
+function limpiarDashboard() {
+
+    workbookActual = null;
+
+    hojas = {};
+
+    datosCuentas = [];
+    datosRelacion = [];
+    datosDetalle = [];
+    datosProveedores = [];
+    datosCentroCosto = [];
+
+    cuentasPrincipales = {};
+
+    catalogoCuentas = {};
+    catalogoProveedores = {};
+    catalogoCentroCosto = {};
+
+    detalleActual = [];
+
+    cuentaSeleccionada = null;
+
+    /*
+       IMPORTANTE:
+       Reiniciar período.
+    */
+
+    periodoSeleccionado = "";
+
+
+    document
+        .getElementById(
+            "excelFile"
+        )
+        .value = "";
+
+
+    document
+        .getElementById(
+            "status"
+        )
+        .innerText =
+            "Selecciona tu archivo Excel para comenzar.";
+
+
+    /*
+       Reiniciar botones de período.
+    */
+
+    document
+        .querySelectorAll(
+            "#periodos button"
+        )
+        .forEach(boton => {
+
+            const nombre =
+                boton.innerText
+                    .replace("☐", "")
+                    .replace("☒", "")
+                    .trim();
+
+
+            boton.classList.remove(
+                "selected"
+            );
+
+
+            boton.innerText =
+                "☐ " + nombre;
+
+        });
+
+
+    document
+        .getElementById(
+            "periodoSeleccionado"
+        )
+        .innerText =
+            "PERÍODO: TODOS";
+
+
+    /*
+       Estado hojas.
+    */
+
+    [
+        "sheetCuentas",
+        "sheetRelacion",
+        "sheetDetalle",
+        "sheetProveedores",
+        "sheetCentro"
+    ]
+    .forEach(id => {
+
+        const elemento =
+            document.getElementById(
+                id
+            );
+
+
+        elemento.className =
+            "sheet";
+
+
+        elemento.querySelector(
+            "span"
+        ).innerText =
+            "Esperando...";
+
+    });
+
+
+    /*
+       Cuentas.
+    */
+
+    document
+        .getElementById(
+            "accountTree"
+        )
+        .innerHTML = `
+
+        <div class="empty">
+            Carga el Excel para
+            mostrar las cuentas.
+        </div>
+
+    `;
+
+
+    /*
+       Sedes.
+    */
+
+    document
+        .getElementById(
+            "resumenSedes"
+        )
+        .innerHTML = `
+
+        <div class="empty">
+            Carga el Excel para
+            mostrar las sedes.
+        </div>
+
+    `;
+
+
+    /*
+       Información.
+    */
+
+    document
+        .getElementById(
+            "selectedInfo"
+        )
+        .innerHTML = `
+
+        <div class="info">
+
+            Selecciona una cuenta
+            o sede para ver información.
+
+        </div>
+
+    `;
+
+
+    ocultarDetalle();
+
+
+    /*
+       KPIs.
+    */
+
+    document
+        .getElementById(
+            "kpiPrincipales"
+        )
+        .innerText =
+            "0";
+
+
+    document
+        .getElementById(
+            "kpiCuentas"
+        )
+        .innerText =
+            "0";
+
+
+    document
+        .getElementById(
+            "kpiMovimientos"
+        )
+        .innerText =
+            "0";
+
+
+    document
+        .getElementById(
+            "kpiTotal"
+        )
+        .innerText =
+            "0.00";
+
+
+    document
+        .getElementById(
+            "kpiProveedores"
+        )
+        .innerText =
+            "0";
+
+
+    document
+        .getElementById(
+            "kpiHora"
+        )
+        .innerText =
+            "--";
+
+}
+
+
+/* ============================================================
+   SELECCIONAR PERIODO
+============================================================ */
+
+function seleccionarPeriodo(
+    periodo
+) {
+
+    periodoSeleccionado =
+        periodo;
+
+
+    const botones =
+        document.querySelectorAll(
+            "#periodos button"
+        );
+
+
+    botones.forEach(boton => {
+
+        const nombre =
+            boton.innerText
+                .replace("☐", "")
+                .replace("☒", "")
+                .trim();
+
+
+        if (
+            normalizar(nombre) ===
+            normalizar(periodo)
+        ) {
+
+            boton.classList.add(
+                "selected"
+            );
+
+
+            boton.innerText =
+                "☒ " +
+                nombre;
+
+        }
+        else {
+
+            boton.classList.remove(
+                "selected"
+            );
+
+
+            boton.innerText =
+                "☐ " +
+                nombre;
+
+        }
+
+    });
+
+
+    document
+        .getElementById(
+            "periodoSeleccionado"
+        )
+        .innerText =
+            "PERÍODO SELECCIONADO: " +
+            periodo;
+
+
+    /*
+       ACTUALIZAR TODO EL DASHBOARD
+       CON EL NUEVO PERÍODO.
+    */
+
+    actualizarKPIs();
+
+    mostrarSedes();
+
+    mostrarCuentas();
+
+
+    /*
+       Si había un detalle abierto,
+       lo cerramos para evitar mostrar
+       datos del período anterior.
+    */
+
+    detalleActual = [];
+
+    ocultarDetalle();
+
+
+    document
+        .getElementById(
+            "selectedInfo"
+        )
+        .innerHTML = `
+
+        <div class="info">
+
+            Período seleccionado:
+            <strong>
+                ${periodo}
+            </strong>
+
+            <br><br>
+
+            Selecciona una cuenta
+            o una sede para ver
+            sus movimientos.
+
+        </div>
+
+    `;
+
+}
+
+
+/* ============================================================
+   FIN
+============================================================ */
+
+</script>
+
+</body>
+
+</html>
