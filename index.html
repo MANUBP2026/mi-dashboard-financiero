@@ -4334,7 +4334,11 @@ function seleccionarPeriodo(
 /* ============================================================
    FIN
 ============================================================ */
-
+    
+fetch("datos_publicos.json")
+    .then(respuesta => respuesta.json())
+    .then(datos => console.log("✅ Datos públicos conectados:", datos));
+    
 </script>
 
 </body>
